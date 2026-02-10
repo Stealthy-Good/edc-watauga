@@ -22,7 +22,7 @@ export default function LiveHerePage() {
         badge="Live Here"
         title="Make the Mountains Your Home"
         subtitle="Live where every day feels like vacation. Mountain adventure, university culture, and modern amenities in a community that welcomes newcomers."
-        backgroundImage="/images/mountain-living.jpg"
+        backgroundImage="/images/mountain-living2.jpg"
         backgroundAlt="Cozy mountain cabin nestled in the forest"
       />
 

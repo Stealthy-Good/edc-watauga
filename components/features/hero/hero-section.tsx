@@ -6,7 +6,7 @@ export function HeroSection() {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background photo */}
       <Image
-        src="/images/hero-mountains.jpg"
+        src="/images/mountain-hero2.jpg"
         alt="Blue Ridge Mountains misty landscape"
         fill
         className="object-cover"

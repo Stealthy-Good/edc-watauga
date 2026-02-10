@@ -24,7 +24,7 @@ export default function DoBusinessPage() {
         badge="Do Business"
         title="Grow Your Business in the High Country"
         subtitle="Access educated talent, outdoor industry expertise, and a community that values both entrepreneurship and quality of life."
-        backgroundImage="/images/business-meeting.jpg"
+        backgroundImage="/images/business-meeting2.jpg"
         backgroundAlt="Professional working on laptop in office setting"
       />
 

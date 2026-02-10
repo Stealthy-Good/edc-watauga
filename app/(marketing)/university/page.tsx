@@ -22,8 +22,8 @@ export default function UniversityPage() {
         badge="University Connection"
         title="Appalachian State University"
         subtitle="The only university town in the NC mountains — 20,000+ students, cutting-edge research, and a workforce pipeline that drives the regional economy."
-        backgroundImage="/images/app-state-campus.jpg"
-        backgroundAlt="University graduates throwing caps at sunset"
+        backgroundImage="/images/app-state2.jpg"
+        backgroundAlt="Appalachian State University campus"
       />
 
       {/* Economic Impact */}

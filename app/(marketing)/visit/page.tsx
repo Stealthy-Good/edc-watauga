@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/ui/page-hero";
 import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
@@ -22,8 +23,8 @@ export default function VisitPage() {
         badge="Visit"
         title="Experience the High Country"
         subtitle="From Blue Ridge trails to downtown Boone, discover why visitors keep coming back to the mountains."
-        backgroundImage="/images/hiking-trail.jpg"
-        backgroundAlt="Mountain hiking trail through autumn landscape"
+        backgroundImage="/images/mountain-activity.jpg"
+        backgroundAlt="Couple enjoying outdoor activities in the mountains"
       />
 
       {/* Outdoor Adventure */}
@@ -35,6 +36,16 @@ export default function VisitPage() {
               title="Outdoor Adventure"
               subtitle="Four seasons of outdoor recreation in one of the most beautiful settings in the eastern United States."
             />
+            <div className="mb-10 overflow-hidden rounded-card">
+              <Image
+                src="/images/mountain-biking.jpg"
+                alt="Mountain biking on singletrack trails in the Blue Ridge Mountains"
+                width={1200}
+                height={480}
+                className="h-60 w-full object-cover md:h-80"
+                priority={false}
+              />
+            </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {adventures.map((adventure) => (
                 <Card key={adventure.title} className="p-8">
