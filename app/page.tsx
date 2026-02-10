@@ -4,6 +4,7 @@ import { StatsCounterSection } from "@/components/features/stats/stats-counter-s
 import { TargetIndustriesSection } from "@/components/features/industries/target-industries-section";
 import { CommunityShowcase } from "@/components/features/map/map-placeholder";
 import { TestimonialsSection } from "@/components/features/testimonials/testimonials-section";
+import { WhyWataugaSection } from "@/components/features/why-watauga/why-watauga-section";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
@@ -12,10 +13,13 @@ export default function HomePage() {
     <>
       <HeroSection />
       <AnimateOnScroll>
-        <QuickAccessTiles />
+        <StatsCounterSection />
       </AnimateOnScroll>
       <AnimateOnScroll>
-        <StatsCounterSection />
+        <WhyWataugaSection />
+      </AnimateOnScroll>
+      <AnimateOnScroll>
+        <QuickAccessTiles />
       </AnimateOnScroll>
       <AnimateOnScroll>
         <TargetIndustriesSection />

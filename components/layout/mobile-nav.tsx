@@ -43,7 +43,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       <div
         ref={overlayRef}
         className={cn(
-          "fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-normal",
+          "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-normal",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         onClick={onClose}
@@ -53,7 +53,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       {/* Slide-in panel */}
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-elevated transition-transform duration-normal",
+          "fixed inset-0 z-50 bg-white shadow-elevated transition-transform duration-normal",
           open ? "translate-x-0" : "translate-x-full",
         )}
         role="dialog"

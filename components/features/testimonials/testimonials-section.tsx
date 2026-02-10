@@ -8,13 +8,13 @@ export function TestimonialsSection() {
     <section className="bg-surface-muted py-20">
       <Container>
         <SectionHeading
-          badge="Success Stories"
-          title="Businesses Thriving in the High Country"
-          subtitle="Hear from companies that chose Watauga County — and never looked back."
+          badge="Why Watauga"
+          title="Why Businesses Choose the High Country"
+          subtitle="What local business leaders say about growing their companies in Watauga County."
         />
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <Card key={testimonial.name} hover={false} className="p-8">
+            <Card key={testimonial.attribution} hover={false} className="p-8">
               <svg
                 className="mb-4 h-8 w-8 text-accent/30"
                 fill="currentColor"
@@ -28,10 +28,10 @@ export function TestimonialsSection() {
               </p>
               <div className="mt-6 border-t border-border-light pt-4">
                 <p className="font-display text-sm font-bold text-text-primary">
-                  {testimonial.name}
+                  — {testimonial.attribution}
                 </p>
                 <p className="text-xs text-text-muted">
-                  {testimonial.title}, {testimonial.company}
+                  {testimonial.industry}
                 </p>
               </div>
             </Card>

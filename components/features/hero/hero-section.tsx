@@ -6,16 +6,16 @@ export function HeroSection() {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background photo */}
       <Image
-        src="/images/mountain-hero2.jpg"
-        alt="Blue Ridge Mountains misty landscape"
+        src="/images/mountain-sunset-couple.jpg"
+        alt="Couple standing on mountain summit at sunset overlooking Blue Ridge Mountains"
         fill
         className="object-cover"
         priority
         sizes="100vw"
       />
 
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-primary-dark/60" />
+      {/* Warm gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">

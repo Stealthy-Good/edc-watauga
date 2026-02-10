@@ -11,7 +11,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle, badge, backgroundImage, backgroundAlt }: PageHeroProps) {
   return (
-    <section className="relative bg-gradient-to-br from-primary-dark via-primary to-primary/90 pt-32 pb-20">
+    <section className="relative bg-gradient-to-br from-primary-dark via-primary to-primary/90 pt-28 pb-16">
       {backgroundImage && (
         <Image
           src={backgroundImage}
@@ -21,7 +21,7 @@ export function PageHero({ title, subtitle, badge, backgroundImage, backgroundAl
           sizes="100vw"
         />
       )}
-      <div className="absolute inset-0 bg-primary-dark/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/50" />
       <Container className="relative text-center">
         {badge && (
           <span className="mb-4 inline-block rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-white/90">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Outfit, Lora } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AnalyticsProvider } from "@/components/features/ga4/analytics-provider";
@@ -17,6 +17,13 @@ const outfit = Outfit({
   variable: "--font-outfit",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -43,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} ${lora.variable}`}>
       <body>
         <a href="#main-content" className="skip-to-content">
           Skip to content

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/ui/page-hero";
 import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
@@ -22,8 +23,8 @@ export default function LiveHerePage() {
         badge="Live Here"
         title="Make the Mountains Your Home"
         subtitle="Live where every day feels like vacation. Mountain adventure, university culture, and modern amenities in a community that welcomes newcomers."
-        backgroundImage="/images/mountain-living2.jpg"
-        backgroundAlt="Cozy mountain cabin nestled in the forest"
+        backgroundImage="/images/couple-dog-field.jpg"
+        backgroundAlt="Couple walking with their dog through a golden field at sunset"
       />
 
       {/* Relocate */}
@@ -56,6 +57,15 @@ export default function LiveHerePage() {
               title="Why People Love Living Here"
               subtitle="Clean mountain air, outdoor recreation at your doorstep, and a tight-knit community with modern amenities."
             />
+            <div className="mb-10 overflow-hidden rounded-card">
+              <Image
+                src="/images/couple-laughing-outdoors.jpg"
+                alt="Couple enjoying an afternoon outdoors in the mountains"
+                width={1200}
+                height={400}
+                className="h-60 w-full object-cover md:h-72"
+              />
+            </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {qualityOfLifeItems.map((item) => (
                 <div key={item.title} className="flex gap-5">

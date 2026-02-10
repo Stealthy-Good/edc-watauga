@@ -3,6 +3,8 @@ export interface IndustrySection {
   badge: string;
   title: string;
   subtitle: string;
+  image?: string;
+  imageAlt?: string;
   highlights: {
     title: string;
     description: string;
@@ -88,6 +90,8 @@ export const industrySections: IndustrySection[] = [
     title: "Health & Wellness",
     subtitle:
       "Clean mountain air, an active outdoor lifestyle, and growing healthcare infrastructure create an ideal environment for wellness-focused businesses and health services.",
+    image: "/images/healthcare-doctor-patient.jpg",
+    imageAlt: "Healthcare professional consulting with a patient",
     highlights: [
       {
         title: "Healthcare Infrastructure",

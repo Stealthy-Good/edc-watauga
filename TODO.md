@@ -13,10 +13,15 @@ _(none)_
 - Build interactive map with Mapbox integration (replace community showcase with real map)
 - Build property search tool with GIS data
 - Consider CMS integration (Sanity, Contentful, or similar) for content management
-- Replace placeholder testimonials with real business quotes
+- Source real testimonials from Watauga County businesses (anonymous placeholders in place)
 - Add team/staff bios to About page when available
 - Create Data Center interactive stat cards with source tooltips
-- Add real photography to replace Unsplash stock images
+- Add breadcrumb navigation improvements (sticky secondary nav on long pages)
+- Add news/updates section (P2 item from improvements doc)
+- Add About the EDC page content (board of directors, staff bios, funding)
+- Add partner logo bar (NC Commerce, App State, Chamber, etc.)
+- Add accessibility audit (WCAG 2.1 AA — alt text, contrast, keyboard nav, ARIA)
+- Add downloadable resources section (community profiles, incentive guides)
 
 ## Blocked
 
@@ -85,6 +90,28 @@ _(none)_
 - Integrate scroll-triggered fade-in animations on homepage sections
 - Run accessibility audit: aria-live on form status, aria-hidden on decorative SVGs, color contrast fix (text-muted #7a7a7a → #6b6b6b)
 
+### Phase 10: Site Improvements (P0 + P1)
+- Fix animated counter bug (hasAnimated state → ref, ensure animation completes to target value)
+- Fix stats grammar ("~2 hrs" prefix for Charlotte distance)
+- Fix mobile navigation overlay (full-screen coverage, remove max-w-sm)
+- Replace Do Business hero stock photo ("Product School" shirt → Charleston Forge metalworker)
+- Replace Homepage hero with mountain sunset couple photo
+- Replace Visit hero with hikers on mountain summit photo
+- Replace Live Here hero with couple + dog in golden field photo
+- Rework testimonials: remove fabricated names, use anonymous industry attribution
+- Warm up color palette (olive-shift primary green, warmer surface-muted, darker body text, add gold token)
+- Add Lora serif font for section headings (editorial warmth)
+- Restyle section badges (left-border accent instead of pill outline)
+- Reduce hero overlay opacity (warm gradient instead of flat green tint)
+- Shorten subpage hero height (pt-28 pb-16 instead of pt-32 pb-20)
+- Create WhyWataugaSection component (full-width image + text narrative block)
+- Reorder homepage: Hero → Stats → WhyWatauga → QuickAccess → Industries → Testimonials → Communities → CTA
+- Add photos to community showcase cards (image → content card layout with hover zoom)
+- Add inline photography to Visit page (mountain biking + fly fishing side-by-side)
+- Add inline photography to Live Here page (couple laughing outdoors in quality-of-life section)
+- Add inline photography to Do Business page (healthcare doctor-patient in health industry section)
+- Copy and optimize 8 new images (resize to 1920px max width)
+
 ### Phase 9: UI/UX Rebuild
 - Fix OG image fallback URLs (layout.tsx, env.ts) — changed from localhost to wataugaedc.org
 - Add 4 industry sections to Do Business page (outdoor, tech, arts, health) with anchor targets
@@ -113,8 +140,8 @@ _(none)_
 <!-- Discoveries, context, or things to remember -->
 - Tech stack: Next.js 16.1.6 + Tailwind v4 + TypeScript + GA4 + Resend + Vercel
 - No auth, no database, no billing — pure public marketing site
-- Color palette: primary green (#1B4D3E), accent orange (#C75B12), sky blue (#5B9BD5), earth brown (#8B6F47)
-- Display font: Outfit (headlines) + Inter (body)
+- Color palette: primary green (#1E4D3A), accent orange (#C75B12), gold (#D4A84B), sky blue (#5B9BD5), earth brown (#8B6F47)
+- Display font: Outfit (headlines) + Inter (body) + Lora (section headings, serif warmth)
 - Tailwind v4 uses CSS-based @theme in globals.css, NOT tailwind.config.ts
 - Content lives in lib/content/ as TypeScript data files — CMS swap target
 - Interactive tools (map, property search, calculator) are placeholder sections for now
@@ -123,6 +150,6 @@ _(none)_
 - Production build generates all pages as static, except /api/contact and OG images (dynamic)
 - Unsplash images stored in public/images/ (self-hosted, no external dependency)
 - OG images: dynamic per-page via Next.js ImageResponse API (1200x630, branded green + orange)
-- Testimonials in lib/content/testimonials.ts are placeholder — replace with real business quotes
+- Testimonials in lib/content/testimonials.ts use anonymous industry attribution — replace with real quotes when available
 - About page team section is minimal — add staff bios when available
 - .env.local keeps localhost:3000 for local dev; production needs NEXT_PUBLIC_APP_URL set on Vercel

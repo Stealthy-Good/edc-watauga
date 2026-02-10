@@ -28,6 +28,7 @@ export const stats: Stat[] = [
   },
   {
     value: 2,
+    prefix: "~",
     suffix: " hrs",
     label: "To Charlotte",
   },

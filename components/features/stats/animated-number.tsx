@@ -16,12 +16,12 @@ export function AnimatedNumber({
   duration = 2000,
 }: AnimatedNumberProps) {
   const [displayValue, setDisplayValue] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const hasAnimatedRef = useRef(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element || hasAnimatedRef.current) return;
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -29,8 +29,9 @@ export function AnimatedNumber({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entry?.isIntersecting && !hasAnimatedRef.current) {
+          hasAnimatedRef.current = true;
+          observer.disconnect();
 
           if (prefersReducedMotion) {
             setDisplayValue(value);
@@ -43,9 +44,11 @@ export function AnimatedNumber({
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            setDisplayValue(Math.round(eased * value));
 
-            if (progress < 1) {
+            if (progress >= 1) {
+              setDisplayValue(value);
+            } else {
+              setDisplayValue(Math.round(eased * value));
               requestAnimationFrame(animate);
             }
           }
@@ -59,7 +62,7 @@ export function AnimatedNumber({
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, [value, duration, hasAnimated]);
+  }, [value, duration]);
 
   return (
     <span ref={ref}>

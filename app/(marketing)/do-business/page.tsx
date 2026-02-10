@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/ui/page-hero";
 import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
@@ -24,8 +25,8 @@ export default function DoBusinessPage() {
         badge="Do Business"
         title="Grow Your Business in the High Country"
         subtitle="Access educated talent, outdoor industry expertise, and a community that values both entrepreneurship and quality of life."
-        backgroundImage="/images/business-meeting2.jpg"
-        backgroundAlt="Professional working on laptop in office setting"
+        backgroundImage="/images/charleston-forge-metalworker.jpg"
+        backgroundAlt="Craftsman at work in a Watauga County manufacturing facility"
       />
 
       {/* Site Selection Assistance */}
@@ -126,6 +127,17 @@ export default function DoBusinessPage() {
                 title={section.title}
                 subtitle={section.subtitle}
               />
+              {section.image && (
+                <div className="mb-10 overflow-hidden rounded-card">
+                  <Image
+                    src={section.image}
+                    alt={section.imageAlt ?? ""}
+                    width={1200}
+                    height={400}
+                    className="h-60 w-full object-cover md:h-72"
+                  />
+                </div>
+              )}
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 {section.highlights.map((highlight) => (
                   <Card key={highlight.title}>
