@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
@@ -17,13 +16,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
       <PageHero
         badge="About Us"
         title="Watauga County Economic Development Commission"
         subtitle="Fostering economic growth and opportunity in the High Country since its founding, the EDC works to attract, retain, and expand businesses in Watauga County."
         backgroundImage="/images/community-event.jpg"
         backgroundAlt="Watauga County community gathering"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
       />
 
       {/* Mission */}

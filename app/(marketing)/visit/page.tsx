@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
@@ -18,13 +17,13 @@ export const metadata: Metadata = {
 export default function VisitPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Visit" }]} />
       <PageHero
         badge="Visit"
         title="Experience the High Country"
         subtitle="From Blue Ridge trails to downtown Boone, discover why visitors keep coming back to the mountains."
         backgroundImage="/images/hikers-mountain-summit.jpg"
         backgroundAlt="Hikers taking in the view from a Blue Ridge mountain summit"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Visit" }]}
       />
 
       {/* Outdoor Adventure */}

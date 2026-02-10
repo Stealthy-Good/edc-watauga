@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
@@ -18,13 +17,13 @@ export const metadata: Metadata = {
 export default function LiveHerePage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Live Here" }]} />
       <PageHero
         badge="Live Here"
         title="Make the Mountains Your Home"
         subtitle="Live where every day feels like vacation. Mountain adventure, university culture, and modern amenities in a community that welcomes newcomers."
         backgroundImage="/images/couple-dog-field.jpg"
         backgroundAlt="Couple walking with their dog through a golden field at sunset"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Live Here" }]}
       />
 
       {/* Relocate */}

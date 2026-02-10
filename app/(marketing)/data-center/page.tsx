@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
@@ -18,13 +17,13 @@ export const metadata: Metadata = {
 export default function DataCenterPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Data Center" }]} />
       <PageHero
         badge="Data Center"
         title="Data & Community Profiles"
         subtitle="The facts, figures, and reports you need to make informed decisions about Watauga County."
         backgroundImage="/images/mountain-vista.jpg"
         backgroundAlt="Curved road along Blue Ridge Parkway with mountain views"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Data Center" }]}
       />
 
       {/* Community Profile */}

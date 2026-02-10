@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
@@ -17,13 +16,13 @@ export const metadata: Metadata = {
 export default function UniversityPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "University" }]} />
       <PageHero
         badge="University Connection"
         title="Appalachian State University"
         subtitle="The only university town in the NC mountains — 20,000+ students, cutting-edge research, and a workforce pipeline that drives the regional economy."
         backgroundImage="/images/app-state2.jpg"
         backgroundAlt="Appalachian State University campus"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "University" }]}
       />
 
       {/* Economic Impact */}

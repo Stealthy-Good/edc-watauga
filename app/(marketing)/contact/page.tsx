@@ -3,7 +3,6 @@ import { PageHero } from "@/components/ui/page-hero";
 import { Container } from "@/components/ui/container";
 import { ContactForm } from "@/components/features/contact/contact-form";
 import { siteConfig } from "@/lib/content/site-config";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
@@ -16,13 +15,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
       <PageHero
         badge="Contact"
         title="Let's Talk"
         subtitle="Whether you're exploring business opportunities, planning a move, or just want to learn more — we'd love to hear from you."
         backgroundImage="/images/downtown-boone.jpg"
         backgroundAlt="Bustling mountain town main street with American flag"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
 
       <AnimateOnScroll>

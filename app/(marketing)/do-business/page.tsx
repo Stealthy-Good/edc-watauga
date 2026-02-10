@@ -6,7 +6,6 @@ import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { industrySections } from "@/lib/content/pages/do-business";
 
@@ -20,13 +19,13 @@ export const metadata: Metadata = {
 export default function DoBusinessPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Do Business" }]} />
       <PageHero
         badge="Do Business"
         title="Grow Your Business in the High Country"
         subtitle="Access educated talent, outdoor industry expertise, and a community that values both entrepreneurship and quality of life."
         backgroundImage="/images/charleston-forge-metalworker.jpg"
         backgroundAlt="Craftsman at work in a Watauga County manufacturing facility"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Do Business" }]}
       />
 
       {/* Site Selection Assistance */}
