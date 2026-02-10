@@ -4,16 +4,21 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
+import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
   title: "Data Center",
   description:
     "Watauga County community profiles, economic data, workforce statistics, industry reports, and location advantages for business decision-making.",
+  alternates: { canonical: "/data-center" },
 };
 
 export default function DataCenterPage() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Data Center" }]} />
       <PageHero
         badge="Data Center"
         title="Data & Community Profiles"
@@ -23,85 +28,95 @@ export default function DataCenterPage() {
       />
 
       {/* Community Profile */}
-      <section id="community-profile" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Snapshot"
-            title="Community Profile"
-            subtitle="Key statistics and demographics for Watauga County, North Carolina."
-          />
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {communityStats.map((stat) => (
-              <Card key={stat.label} hover={false} className="text-center p-6">
-                <p className="font-display text-2xl font-bold text-primary">{stat.value}</p>
-                <p className="mt-1 text-sm text-text-secondary">{stat.label}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="community-profile" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Snapshot"
+              title="Community Profile"
+              subtitle="Key statistics and demographics for Watauga County, North Carolina."
+            />
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {communityStats.map((stat) => (
+                <Card key={stat.label} hover={false} className="text-center p-6">
+                  <p className="font-display text-2xl font-bold text-primary">{stat.value}</p>
+                  <p className="mt-1 text-sm text-text-secondary">{stat.label}</p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Location Advantages */}
-      <section id="location" className="bg-surface-muted py-20">
-        <Container>
-          <SectionHeading
-            badge="Strategic Location"
-            title="Location Advantages"
-            subtitle="Accessible yet elevated — Watauga County offers proximity to major markets with mountain quality of life."
-          />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card className="p-8">
-              <h3 className="font-display text-lg font-bold text-text-primary">Proximity to Major Markets</h3>
-              <ul className="mt-4 space-y-3">
-                {proximityData.map((item) => (
-                  <li key={item.city} className="flex items-center justify-between border-b border-border-light pb-2 last:border-0">
-                    <span className="text-sm text-text-primary">{item.city}</span>
-                    <span className="text-sm font-medium text-primary">{item.distance}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-            <Card className="p-8">
-              <h3 className="font-display text-lg font-bold text-text-primary">Infrastructure</h3>
-              <ul className="mt-4 space-y-3">
-                {infrastructure.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="mt-0.5 h-5 w-5 shrink-0 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                    <span className="text-sm text-text-secondary">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="location" className="bg-surface-muted py-20">
+          <Container>
+            <SectionHeading
+              badge="Strategic Location"
+              title="Location Advantages"
+              subtitle="Accessible yet elevated — Watauga County offers proximity to major markets with mountain quality of life."
+            />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <Card className="p-8">
+                <h3 className="font-display text-lg font-bold text-text-primary">Proximity to Major Markets</h3>
+                <ul className="mt-4 space-y-3">
+                  {proximityData.map((item) => (
+                    <li key={item.city} className="flex items-center justify-between border-b border-border-light pb-2 last:border-0">
+                      <span className="text-sm text-text-primary">{item.city}</span>
+                      <span className="text-sm font-medium text-primary">{item.distance}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+              <Card className="p-8">
+                <h3 className="font-display text-lg font-bold text-text-primary">Infrastructure</h3>
+                <ul className="mt-4 space-y-3">
+                  {infrastructure.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      <span className="text-sm text-text-secondary">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Reports */}
-      <section id="reports" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Reports"
-            title="Industry Reports & Data"
-            subtitle="Download reports and explore economic indicators for Watauga County."
-          />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {reports.map((report) => (
-              <Card key={report.title} className="p-6">
-                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-card bg-sky-custom-light text-sky-custom">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                  </svg>
-                </div>
-                <h3 className="font-display text-base font-bold text-text-primary">{report.title}</h3>
-                <p className="mt-1 text-sm text-text-secondary">{report.description}</p>
-                <p className="mt-3 text-xs text-text-muted">Coming Soon</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="reports" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Reports"
+              title="Industry Reports & Data"
+              subtitle="Download reports and explore economic indicators for Watauga County."
+            />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {reports.map((report) => (
+                <Card key={report.title} className="p-6">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-card bg-sky-custom-light text-sky-custom">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-display text-base font-bold text-text-primary">{report.title}</h3>
+                  <p className="mt-1 text-sm text-text-secondary">{report.description}</p>
+                  <div className="mt-3">
+                    <Button variant="secondary" size="sm" href="/contact">
+                      Request Report
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       <CTABanner
         title="Need Custom Data?"

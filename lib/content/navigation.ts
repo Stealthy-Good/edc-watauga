@@ -63,11 +63,11 @@ export const mainNav: NavItem[] = [
 ];
 
 export const audiencePaths: AudiencePath[] = [
-  { label: "Start a Business", description: "Resources for entrepreneurs", href: "/do-business#incentives" },
-  { label: "Relocate My Company", description: "Sites, workforce, incentives", href: "/do-business" },
-  { label: "Move to the Area", description: "Housing, schools, lifestyle", href: "/live-here" },
-  { label: "Plan a Visit", description: "Trails, dining, culture", href: "/visit" },
-  { label: "Find Workforce Data", description: "Demographics, reports", href: "/data-center" },
+  { label: "Start a Business", description: "Resources for entrepreneurs", href: "/do-business#incentives", icon: "briefcase" },
+  { label: "Relocate My Company", description: "Sites, workforce, incentives", href: "/do-business", icon: "building" },
+  { label: "Move to the Area", description: "Housing, schools, lifestyle", href: "/live-here", icon: "home" },
+  { label: "Plan a Visit", description: "Trails, dining, culture", href: "/visit", icon: "compass" },
+  { label: "Find Workforce Data", description: "Demographics, reports", href: "/data-center", icon: "chart" },
 ];
 
 export const footerColumns: FooterColumn[] = [
@@ -77,7 +77,7 @@ export const footerColumns: FooterColumn[] = [
       { label: "Available Sites", href: "/do-business#available-sites" },
       { label: "Workforce & Talent", href: "/do-business#workforce" },
       { label: "Incentives", href: "/do-business#incentives" },
-      { label: "Key Industries", href: "/do-business#industries" },
+      { label: "Key Industries", href: "/do-business#outdoor-industry" },
     ],
   },
   {
@@ -93,12 +93,13 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "Outdoor Adventure", href: "/visit#outdoor-adventure" },
       { label: "Downtown Boone", href: "/visit#downtown-boone" },
-      { label: "Events & Culture", href: "/visit#events" },
+      { label: "Events & Culture", href: "/visit#downtown-boone" },
     ],
   },
   {
     title: "Resources",
     links: [
+      { label: "About the EDC", href: "/about" },
       { label: "Data Center", href: "/data-center" },
       { label: "University Connection", href: "/university" },
       { label: "Contact Us", href: "/contact" },

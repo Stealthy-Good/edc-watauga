@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/data-center",
     "/university",
     "/contact",
+    "/about",
   ];
 
   return routes.map((route) => ({

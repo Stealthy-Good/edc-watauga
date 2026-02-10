@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AnalyticsProvider } from "@/components/features/ga4/analytics-provider";
+import { OrganizationJsonLd } from "@/components/features/seo/json-ld";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,7 +26,10 @@ export const metadata: Metadata = {
   },
   description:
     "Discover economic opportunities in Watauga County, NC. Home to Appalachian State University, the Blue Ridge Mountains, and a thriving community where innovation meets mountain living.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "https://wataugaedc.org"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -47,6 +51,7 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <OrganizationJsonLd />
         <AnalyticsProvider />
       </body>
     </html>

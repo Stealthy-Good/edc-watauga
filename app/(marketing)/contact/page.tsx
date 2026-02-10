@@ -3,16 +3,20 @@ import { PageHero } from "@/components/ui/page-hero";
 import { Container } from "@/components/ui/container";
 import { ContactForm } from "@/components/features/contact/contact-form";
 import { siteConfig } from "@/lib/content/site-config";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with the Watauga County Economic Development Commission. Business inquiries, relocation questions, and partnership opportunities.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
       <PageHero
         badge="Contact"
         title="Let's Talk"
@@ -21,9 +25,10 @@ export default function ContactPage() {
         backgroundAlt="Bustling mountain town main street with American flag"
       />
 
-      <section className="py-20">
-        <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+      <AnimateOnScroll>
+        <section className="py-20">
+          <Container>
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
             {/* Contact form */}
             <div className="lg:col-span-3">
               <h2 className="font-display text-2xl font-bold text-text-primary">Send Us a Message</h2>
@@ -66,23 +71,25 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Map placeholder */}
-                <div className="mt-8 overflow-hidden rounded-card bg-primary-light">
-                  <div className="flex h-48 items-center justify-center text-center">
-                    <div>
-                      <svg className="mx-auto h-8 w-8 text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                      </svg>
-                      <p className="mt-2 text-xs text-primary/60">Map Coming Soon</p>
-                    </div>
-                  </div>
+                {/* Google Maps embed */}
+                <div className="mt-8 overflow-hidden rounded-card">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.8!2d-81.6746!3d36.2168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8850e5a5f1e1f3d9%3A0x1234567890abcdef!2s228+Queen+St%2C+Boone%2C+NC+28607!5e0!3m2!1sen!2sus!4v1707000000000"
+                    width="100%"
+                    height="192"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Watauga County EDC office location at 228 Queen Street, Boone, NC"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </Container>
       </section>
+      </AnimateOnScroll>
     </>
   );
 }

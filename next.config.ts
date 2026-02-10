@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com",
               "font-src 'self' data:",
               "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
+              "frame-src 'self' https://www.google.com https://maps.google.com",
               "frame-ancestors 'none'",
             ].join("; "),
           },

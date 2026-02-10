@@ -4,16 +4,20 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
   title: "Visit",
   description:
     "Plan your visit to Watauga County. Outdoor adventure, downtown Boone, breweries, hiking trails, skiing, and the best of the Blue Ridge Mountains.",
+  alternates: { canonical: "/visit" },
 };
 
 export default function VisitPage() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Visit" }]} />
       <PageHero
         badge="Visit"
         title="Experience the High Country"
@@ -23,66 +27,72 @@ export default function VisitPage() {
       />
 
       {/* Outdoor Adventure */}
-      <section id="outdoor-adventure" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Adventure Awaits"
-            title="Outdoor Adventure"
-            subtitle="Four seasons of outdoor recreation in one of the most beautiful settings in the eastern United States."
-          />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {adventures.map((adventure) => (
-              <Card key={adventure.title} className="p-8">
-                <div className="mb-4 text-3xl">{adventure.emoji}</div>
-                <h3 className="font-display text-lg font-bold text-text-primary">{adventure.title}</h3>
-                <p className="mt-2 text-sm text-text-secondary">{adventure.description}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="outdoor-adventure" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Adventure Awaits"
+              title="Outdoor Adventure"
+              subtitle="Four seasons of outdoor recreation in one of the most beautiful settings in the eastern United States."
+            />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {adventures.map((adventure) => (
+                <Card key={adventure.title} className="p-8">
+                  <div className="mb-4 text-3xl">{adventure.emoji}</div>
+                  <h3 className="font-display text-lg font-bold text-text-primary">{adventure.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{adventure.description}</p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Downtown Boone */}
-      <section id="downtown-boone" className="bg-surface-muted py-20">
-        <Container>
-          <SectionHeading
-            badge="Downtown"
-            title="Downtown Boone"
-            subtitle="A vibrant college town with independent shops, farm-to-table restaurants, live music, and Appalachian culture."
-          />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {downtownHighlights.map((item) => (
-              <div key={item.title} className="flex gap-5 rounded-card bg-white p-6 shadow-soft">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-accent-light text-accent">
-                  {item.icon}
+      <AnimateOnScroll>
+        <section id="downtown-boone" className="bg-surface-muted py-20">
+          <Container>
+            <SectionHeading
+              badge="Downtown"
+              title="Downtown Boone"
+              subtitle="A vibrant college town with independent shops, farm-to-table restaurants, live music, and Appalachian culture."
+            />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {downtownHighlights.map((item) => (
+                <div key={item.title} className="flex gap-5 rounded-card bg-white p-6 shadow-soft">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-accent-light text-accent">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-text-primary">{item.title}</h3>
+                    <p className="mt-1 text-sm text-text-secondary">{item.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-text-primary">{item.title}</h3>
-                  <p className="mt-1 text-sm text-text-secondary">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Dining */}
-      <section id="dining" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Food & Drink"
-            title="Breweries, Dining & Local Flavors"
-            subtitle="From craft breweries to farm-to-table restaurants, Watauga County's food scene punches well above its weight."
-          />
-          <div className="rounded-dashboard border border-border-light bg-surface-warm p-8 text-center">
-            <p className="text-lg font-medium text-text-primary">15+ Breweries & Distilleries</p>
-            <p className="mt-2 text-sm text-text-secondary">
-              Explore the High Country Brewery Trail featuring local craft breweries, cideries, and distilleries.
-              Pair with farm-to-table dining featuring locally sourced Appalachian cuisine.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="dining" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Food & Drink"
+              title="Breweries, Dining & Local Flavors"
+              subtitle="From craft breweries to farm-to-table restaurants, Watauga County's food scene punches well above its weight."
+            />
+            <div className="rounded-dashboard border border-border-light bg-surface-warm p-8 text-center">
+              <p className="text-lg font-medium text-text-primary">15+ Breweries & Distilleries</p>
+              <p className="mt-2 text-sm text-text-secondary">
+                Explore the High Country Brewery Trail featuring local craft breweries, cideries, and distilleries.
+                Pair with farm-to-table dining featuring locally sourced Appalachian cuisine.
+              </p>
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       <CTABanner
         title="Plan Your Mountain Adventure"

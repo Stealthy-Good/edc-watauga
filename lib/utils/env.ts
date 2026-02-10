@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const clientEnvSchema = z.object({
   NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional(),
-  NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
+  NEXT_PUBLIC_APP_URL: z.string().url().default("https://wataugaedc.org"),
   NEXT_PUBLIC_APP_NAME: z.string().default("Watauga County EDC"),
 });
 

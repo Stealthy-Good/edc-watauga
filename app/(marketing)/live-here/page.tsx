@@ -4,16 +4,20 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
   title: "Live Here",
   description:
     "Discover what it's like to live in Watauga County. Housing, quality of life, schools, healthcare, and everything you need to relocate to the NC mountains.",
+  alternates: { canonical: "/live-here" },
 };
 
 export default function LiveHerePage() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Live Here" }]} />
       <PageHero
         badge="Live Here"
         title="Make the Mountains Your Home"
@@ -23,66 +27,72 @@ export default function LiveHerePage() {
       />
 
       {/* Relocate */}
-      <section id="relocate" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Relocate"
-            title="Relocate to Watauga County"
-            subtitle="Everything you need to know about making the move to the High Country."
-          />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {relocateCards.map((card) => (
-              <Card key={card.title}>
-                <h3 className="font-display text-lg font-bold text-text-primary">{card.title}</h3>
-                <p className="mt-2 text-sm text-text-secondary">{card.description}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="relocate" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Relocate"
+              title="Relocate to Watauga County"
+              subtitle="Everything you need to know about making the move to the High Country."
+            />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {relocateCards.map((card) => (
+                <Card key={card.title}>
+                  <h3 className="font-display text-lg font-bold text-text-primary">{card.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{card.description}</p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Quality of Life */}
-      <section id="quality-of-life" className="bg-surface-muted py-20">
-        <Container>
-          <SectionHeading
-            badge="Quality of Life"
-            title="Why People Love Living Here"
-            subtitle="Clean mountain air, outdoor recreation at your doorstep, and a tight-knit community with modern amenities."
-          />
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {qualityOfLifeItems.map((item) => (
-              <div key={item.title} className="flex gap-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-primary-light text-primary">
-                  {item.icon}
+      <AnimateOnScroll>
+        <section id="quality-of-life" className="bg-surface-muted py-20">
+          <Container>
+            <SectionHeading
+              badge="Quality of Life"
+              title="Why People Love Living Here"
+              subtitle="Clean mountain air, outdoor recreation at your doorstep, and a tight-knit community with modern amenities."
+            />
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {qualityOfLifeItems.map((item) => (
+                <div key={item.title} className="flex gap-5">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-primary-light text-primary">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-text-primary">{item.title}</h3>
+                    <p className="mt-1 text-sm text-text-secondary">{item.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-text-primary">{item.title}</h3>
-                  <p className="mt-1 text-sm text-text-secondary">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Mountain Living Guide */}
-      <section id="mountain-living" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Mountain Living"
-            title="What to Expect"
-            subtitle="A practical guide to living at 4,800 feet in the Blue Ridge Mountains."
-          />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {mountainLivingTips.map((tip) => (
-              <Card key={tip.title} className="p-8">
-                <h3 className="font-display text-lg font-bold text-text-primary">{tip.title}</h3>
-                <p className="mt-2 text-sm text-text-secondary">{tip.description}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="mountain-living" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Mountain Living"
+              title="What to Expect"
+              subtitle="A practical guide to living at 4,800 feet in the Blue Ridge Mountains."
+            />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {mountainLivingTips.map((tip) => (
+                <Card key={tip.title} className="p-8">
+                  <h3 className="font-display text-lg font-bold text-text-primary">{tip.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{tip.description}</p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       <CTABanner
         title="Ready to Make the Move?"

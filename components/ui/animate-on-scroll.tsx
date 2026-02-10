@@ -7,6 +7,7 @@ interface AnimateOnScrollProps {
   className?: string;
   threshold?: number;
   delay?: number;
+  variant?: "fade" | "fade-up";
 }
 
 export function AnimateOnScroll({
@@ -14,6 +15,7 @@ export function AnimateOnScroll({
   className,
   threshold = 0.1,
   delay = 0,
+  variant = "fade-up",
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -53,13 +55,16 @@ export function AnimateOnScroll({
     };
   }, [threshold, delay]);
 
+  const translateY = variant === "fade-up" ? (isVisible ? 0 : 20) : 0;
+
   return (
     <div
       ref={ref}
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transition: "opacity 0.6s ease-out",
+        transform: `translateY(${translateY}px)`,
+        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
       }}
     >
       {children}

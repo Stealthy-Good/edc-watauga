@@ -4,16 +4,20 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export const metadata: Metadata = {
   title: "University Connection",
   description:
     "Appalachian State University's partnership with Watauga County economic development. Workforce pipeline, research, innovation, and community impact.",
+  alternates: { canonical: "/university" },
 };
 
 export default function UniversityPage() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "University" }]} />
       <PageHero
         badge="University Connection"
         title="Appalachian State University"
@@ -23,67 +27,73 @@ export default function UniversityPage() {
       />
 
       {/* Economic Impact */}
-      <section className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Impact"
-            title="University Economic Impact"
-            subtitle="Appalachian State University is the largest employer in Watauga County and a cornerstone of the regional economy."
-          />
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {impactStats.map((stat) => (
-              <Card key={stat.label} hover={false} className="text-center p-6">
-                <p className="font-display text-2xl font-bold text-primary">{stat.value}</p>
-                <p className="mt-1 text-sm text-text-secondary">{stat.label}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Impact"
+              title="University Economic Impact"
+              subtitle="Appalachian State University is the largest employer in Watauga County and a cornerstone of the regional economy."
+            />
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {impactStats.map((stat) => (
+                <Card key={stat.label} hover={false} className="text-center p-6">
+                  <p className="font-display text-2xl font-bold text-primary">{stat.value}</p>
+                  <p className="mt-1 text-sm text-text-secondary">{stat.label}</p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Academic Programs */}
-      <section className="bg-surface-muted py-20">
-        <Container>
-          <SectionHeading
-            badge="Academics"
-            title="Programs Driving Industry"
-            subtitle="Academic programs aligned with Watauga County's target industries, producing job-ready graduates every year."
-          />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {programs.map((program) => (
-              <Card key={program.title} className="p-6">
-                <h3 className="font-display text-lg font-bold text-text-primary">{program.title}</h3>
-                <p className="mt-2 text-sm text-text-secondary">{program.description}</p>
-                <p className="mt-3 text-xs font-medium text-accent">{program.college}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section className="bg-surface-muted py-20">
+          <Container>
+            <SectionHeading
+              badge="Academics"
+              title="Programs Driving Industry"
+              subtitle="Academic programs aligned with Watauga County's target industries, producing job-ready graduates every year."
+            />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {programs.map((program) => (
+                <Card key={program.title} className="p-6">
+                  <h3 className="font-display text-lg font-bold text-text-primary">{program.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{program.description}</p>
+                  <p className="mt-3 text-xs font-medium text-accent">{program.college}</p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Collaboration */}
-      <section className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Partnership"
-            title="Collaborate with App State"
-            subtitle="Ways your business can connect with university talent, research, and resources."
-          />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {collaborationTypes.map((item) => (
-              <div key={item.title} className="flex gap-5 rounded-card border border-border-light bg-white p-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-primary-light text-primary">
-                  {item.icon}
+      <AnimateOnScroll>
+        <section className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Partnership"
+              title="Collaborate with App State"
+              subtitle="Ways your business can connect with university talent, research, and resources."
+            />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {collaborationTypes.map((item) => (
+                <div key={item.title} className="flex gap-5 rounded-card border border-border-light bg-white p-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-card bg-primary-light text-primary">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-text-primary">{item.title}</h3>
+                    <p className="mt-1 text-sm text-text-secondary">{item.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-text-primary">{item.title}</h3>
-                  <p className="mt-1 text-sm text-text-secondary">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       <CTABanner
         title="Connect with App State"

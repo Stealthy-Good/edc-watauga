@@ -2,7 +2,8 @@ import { HeroSection } from "@/components/features/hero/hero-section";
 import { QuickAccessTiles } from "@/components/features/quick-access/quick-access-tiles";
 import { StatsCounterSection } from "@/components/features/stats/stats-counter-section";
 import { TargetIndustriesSection } from "@/components/features/industries/target-industries-section";
-import { MapPlaceholder } from "@/components/features/map/map-placeholder";
+import { CommunityShowcase } from "@/components/features/map/map-placeholder";
+import { TestimonialsSection } from "@/components/features/testimonials/testimonials-section";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
@@ -20,7 +21,10 @@ export default function HomePage() {
         <TargetIndustriesSection />
       </AnimateOnScroll>
       <AnimateOnScroll>
-        <MapPlaceholder />
+        <TestimonialsSection />
+      </AnimateOnScroll>
+      <AnimateOnScroll>
+        <CommunityShowcase />
       </AnimateOnScroll>
       <AnimateOnScroll>
         <CTABanner

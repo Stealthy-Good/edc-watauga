@@ -4,16 +4,22 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
+import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+import { industrySections } from "@/lib/content/pages/do-business";
 
 export const metadata: Metadata = {
   title: "Do Business",
   description:
     "Explore business opportunities in Watauga County. Available sites, workforce data, incentives, and resources for relocating or expanding your business.",
+  alternates: { canonical: "/do-business" },
 };
 
 export default function DoBusinessPage() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Do Business" }]} />
       <PageHero
         badge="Do Business"
         title="Grow Your Business in the High Country"
@@ -22,77 +28,120 @@ export default function DoBusinessPage() {
         backgroundAlt="Professional working on laptop in office setting"
       />
 
-      {/* Available Sites */}
-      <section id="available-sites" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Available Properties"
-            title="Available Sites & Buildings"
-            subtitle="Find the perfect location for your business in Watauga County."
-          />
-          <div className="rounded-dashboard border border-border-light bg-surface-muted p-12 text-center">
-            <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-light text-primary">
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
-              </svg>
+      {/* Site Selection Assistance */}
+      <AnimateOnScroll>
+        <section id="available-sites" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Available Properties"
+              title="Site Selection Assistance"
+              subtitle="Our team helps businesses find the right location in Watauga County — from available commercial sites to shovel-ready development parcels."
+            />
+            <div className="rounded-dashboard border border-border-light bg-surface-muted p-12 text-center">
+              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-light text-primary">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
+                </svg>
+              </div>
+              <h3 className="font-display text-xl font-bold text-text-primary">
+                Find Your Next Location
+              </h3>
+              <p className="mx-auto mt-2 max-w-lg text-sm text-text-secondary">
+                We offer confidential site selection assistance, Opportunity Zone maps, infrastructure assessments, and connections to commercial real estate professionals.
+              </p>
+              <div className="mt-6">
+                <Button href="/contact" variant="primary" size="md">
+                  Contact Us for Site Selection
+                </Button>
+              </div>
             </div>
-            <h3 className="font-display text-xl font-bold text-text-primary">Property Search Coming Soon</h3>
-            <p className="mt-2 text-sm text-text-secondary">
-              Interactive property search with GIS-powered site selection tools, Opportunity Zone maps, and shovel-ready sites.
-            </p>
-          </div>
-        </Container>
-      </section>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Workforce & Talent */}
-      <section id="workforce" className="bg-surface-muted py-20">
-        <Container>
-          <SectionHeading
-            badge="Workforce"
-            title="Workforce & Talent Pipeline"
-            subtitle="Appalachian State University produces 4,000+ graduates annually, feeding a skilled, educated workforce into the local economy."
-          />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {workforceCards.map((card) => (
-              <Card key={card.title}>
-                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-card bg-sky-custom-light text-sky-custom">
-                  {card.icon}
-                </div>
-                <h3 className="font-display text-lg font-bold text-text-primary">{card.title}</h3>
-                <p className="mt-2 text-sm text-text-secondary">{card.description}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="workforce" className="bg-surface-muted py-20">
+          <Container>
+            <SectionHeading
+              badge="Workforce"
+              title="Workforce & Talent Pipeline"
+              subtitle="Appalachian State University produces 4,000+ graduates annually, feeding a skilled, educated workforce into the local economy."
+            />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {workforceCards.map((card) => (
+                <Card key={card.title}>
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-card bg-sky-custom-light text-sky-custom">
+                    {card.icon}
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-text-primary">{card.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{card.description}</p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
 
       {/* Incentives */}
-      <section id="incentives" className="py-20">
-        <Container>
-          <SectionHeading
-            badge="Incentives"
-            title="Incentives & Business Support"
-            subtitle="Watauga County and the State of North Carolina offer a range of incentives to help businesses start, relocate, and expand."
-          />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {incentiveCategories.map((category) => (
-              <Card key={category.title} className="p-8">
-                <h3 className="font-display text-lg font-bold text-text-primary">{category.title}</h3>
-                <ul className="mt-4 space-y-3">
-                  {category.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                      <span className="text-sm text-text-secondary">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <AnimateOnScroll>
+        <section id="incentives" className="py-20">
+          <Container>
+            <SectionHeading
+              badge="Incentives"
+              title="Incentives & Business Support"
+              subtitle="Watauga County and the State of North Carolina offer a range of incentives to help businesses start, relocate, and expand."
+            />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {incentiveCategories.map((category) => (
+                <Card key={category.title} className="p-8">
+                  <h3 className="font-display text-lg font-bold text-text-primary">{category.title}</h3>
+                  <ul className="mt-4 space-y-3">
+                    {category.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <svg className="mt-0.5 h-5 w-5 shrink-0 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        </svg>
+                        <span className="text-sm text-text-secondary">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      </AnimateOnScroll>
+
+      {/* Industry Sections */}
+      {industrySections.map((section, index) => (
+        <AnimateOnScroll key={section.id}>
+          <section
+            id={section.id}
+            className={index % 2 === 0 ? "bg-surface-muted py-20" : "py-20"}
+          >
+            <Container>
+              <SectionHeading
+                badge={section.badge}
+                title={section.title}
+                subtitle={section.subtitle}
+              />
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                {section.highlights.map((highlight) => (
+                  <Card key={highlight.title}>
+                    <h3 className="font-display text-lg font-bold text-text-primary">
+                      {highlight.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-text-secondary">
+                      {highlight.description}
+                    </p>
+                  </Card>
+                ))}
+              </div>
+            </Container>
+          </section>
+        </AnimateOnScroll>
+      ))}
 
       <CTABanner
         title="Ready to Explore Business Opportunities?"

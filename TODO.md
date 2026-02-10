@@ -9,12 +9,14 @@ _(none)_
 
 ## Up Next
 
-- Add JSON-LD structured data (Organization, LocalBusiness, BreadcrumbList)
 - Add vitest configuration and basic component tests
-- Add breadcrumbs component with Schema.org markup
-- Build interactive map with Mapbox integration
+- Build interactive map with Mapbox integration (replace community showcase with real map)
 - Build property search tool with GIS data
 - Consider CMS integration (Sanity, Contentful, or similar) for content management
+- Replace placeholder testimonials with real business quotes
+- Add team/staff bios to About page when available
+- Create Data Center interactive stat cards with source tooltips
+- Add real photography to replace Unsplash stock images
 
 ## Blocked
 
@@ -83,6 +85,27 @@ _(none)_
 - Integrate scroll-triggered fade-in animations on homepage sections
 - Run accessibility audit: aria-live on form status, aria-hidden on decorative SVGs, color contrast fix (text-muted #7a7a7a → #6b6b6b)
 
+### Phase 9: UI/UX Rebuild
+- Fix OG image fallback URLs (layout.tsx, env.ts) — changed from localhost to wataugaedc.org
+- Add 4 industry sections to Do Business page (outdoor, tech, arts, health) with anchor targets
+- Fix broken navigation anchor links (footer: #industries → #outdoor-industry, #events → #downtown-boone)
+- Replace property search "Coming Soon" with site selection CTA and contact button
+- Replace contact page map placeholder with Google Maps iframe embed
+- Replace homepage map placeholder with community showcase cards (5 communities)
+- Replace Data Center report card "Coming Soon" with "Request Report" CTAs
+- Add JSON-LD structured data (Organization + GovernmentOffice) to root layout
+- Create breadcrumbs component with BreadcrumbList JSON-LD schema
+- Add breadcrumbs to all 6 inner pages
+- Add canonical URL alternates to all page metadata
+- Create testimonials/success stories section for homepage (placeholder content)
+- Create About page with mission, services, and partners
+- Create About page OG image
+- Add About page to footer navigation and sitemap
+- Add icons to "I want to..." dropdown in header and mobile nav
+- Enhance AnimateOnScroll with fade-up variant (translateY + opacity transition)
+- Update CSP to allow Google Maps iframe embedding
+- Add scroll animations (AnimateOnScroll) to all 7 inner page sections
+
 ---
 
 ## Notes
@@ -100,3 +123,6 @@ _(none)_
 - Production build generates all pages as static, except /api/contact and OG images (dynamic)
 - Unsplash images stored in public/images/ (self-hosted, no external dependency)
 - OG images: dynamic per-page via Next.js ImageResponse API (1200x630, branded green + orange)
+- Testimonials in lib/content/testimonials.ts are placeholder — replace with real business quotes
+- About page team section is minimal — add staff bios when available
+- .env.local keeps localhost:3000 for local dev; production needs NEXT_PUBLIC_APP_URL set on Vercel
