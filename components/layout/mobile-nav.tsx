@@ -43,18 +43,18 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       <div
         ref={overlayRef}
         className={cn(
-          "fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-normal",
+          "fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-150",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Slide-in panel */}
+      {/* Panel */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] bg-white shadow-elevated transition-transform duration-normal",
-          open ? "translate-x-0" : "translate-x-full",
+          "fixed inset-0 z-[60] bg-white shadow-elevated transition-opacity duration-150",
+          open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         role="dialog"
         aria-modal="true"
